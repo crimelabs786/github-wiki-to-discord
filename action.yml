@@ -1,0 +1,26 @@
+name: "github-wiki-to-discord"
+description: "Syncs wiki folder with markdown files to a discord channel"
+author: "zulien"
+inputs:
+  wiki_title: 
+    description: "Title of the wiki."
+    required: true
+  wiki_description: 
+    description: "Description of the wiki."
+    required: true
+  wiki_icon_url:
+    description: "Icon url for the wiki."
+    required: false
+  wiki_folder_glob:
+    description: "Wiki folder inside the repo such as faq/**.md."
+    required: true
+  discord_token:
+    description: "Discord bot token."
+    required: true
+  discord_channel:
+    description: "Discord channel to sync wiki changes to."
+    required: true
+  
+runs:
+  using: "node12"
+  main: "dist/index.js"

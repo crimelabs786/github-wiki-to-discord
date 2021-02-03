@@ -1,0 +1,33 @@
+{
+  "name": "github-wiki-to-discord",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:indiainvestments/github-wiki-to-discord.git",
+  "author": "zulien <zulien@example.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "^14.14.22",
+    "@vercel/ncc": "^0.27.0",
+    "husky": "^4.3.8",
+    "typescript": "^4.1.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn export"
+    }
+  },
+  "scripts": {
+    "build": "ncc build src/index.ts -o dist",
+    "export": "yarn build && git add dist/index.js"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/glob": "^0.1.1",
+    "@types/mdast": "^3.0.3",
+    "discord.js": "^12.5.1",
+    "mdast-util-compact": "^3.0.0",
+    "mdast-util-from-markdown": "^0.8.5",
+    "mdast-util-to-markdown": "^0.6.2"
+  }
+}
